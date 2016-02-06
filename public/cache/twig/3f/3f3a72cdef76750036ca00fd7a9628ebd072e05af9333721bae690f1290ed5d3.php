@@ -28,6 +28,7 @@ class __TwigTemplate_386e310e1d7e493da137227c5477d26973ad186979cc7f719799e89de5f
 <h3>TODO:</h3>
 <ul>
   <li>Transaction Route</li>
+  <li>Administrator Panel for Accepting/Rejecting Requests</li>
   <li>Characters Route (In progress...)</li>
   <li>Sort out Balances for Characters</li>
   <li>Bounty Terminal Route</li>
@@ -57,6 +58,7 @@ class __TwigTemplate_386e310e1d7e493da137227c5477d26973ad186979cc7f719799e89de5f
 /* <h3>TODO:</h3>*/
 /* <ul>*/
 /*   <li>Transaction Route</li>*/
+/*   <li>Administrator Panel for Accepting/Rejecting Requests</li>*/
 /*   <li>Characters Route (In progress...)</li>*/
 /*   <li>Sort out Balances for Characters</li>*/
 /*   <li>Bounty Terminal Route</li>*/

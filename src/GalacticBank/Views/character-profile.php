@@ -1,11 +1,13 @@
 <h1>Character Profile</h1>
 
-<p>Name: {{ character.name }}</p>
-<p>Faction: {{ character.faction }}</p>
-<p>Balance: TBD.</p>
-
-{% if character.user_id == user.id %}
-  {% if character.balance_id is null %}
-    This character currently does not have a balance. Apply for one <a href="/balance/apply/{{ character.name|replace(' ', '-')|url_encode }}">here</a>
+<p>Name: <strong>{{ character.name }}</strong></p>
+<p>Faction: <strong>{{ character.faction }}</p></strong>
+<p>Balance:
+  {% if pending_request == 'accepted' %}
+    <strong>{{ balance.amount }}</strong>
   {% endif %}
-{% endif %}
+</p>
+
+
+This character currently does not have a balance. Apply for one
+<a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>

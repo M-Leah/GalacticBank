@@ -3,6 +3,7 @@
 use GalacticBank\Models\User;
 use GalacticBank\Models\Token;
 use GalacticBank\Models\Character;
+use GalacticBank\Models\BalanceRequest;
 
 $app->get('/character', function ($request, $response, $args) {
 
@@ -43,8 +44,28 @@ $app->get('/character/{name}', function ($request, $response, $args) {
   $user  = User::where('id', $token->user_id)->first();
 
   $character = Character::where('name', $name)->first();
-  return $this->view->render($response, 'character-profile.php', ['character' => $character, 'user' => $user]);
 
+  // Get the latest balance request.
+  $balanceRequest = BalanceRequest::where('character_id', $character->id)
+                                      ->orderBy('created_at', 'desc')
+                                      ->first();
+
+  if ($balanceRequest->status == 'Accepted') {
+    $balance = Balance::where('character_id', $character->id)->first();
+    return $this->view->render($response, 'character-profile.php', [
+      'character' => $character,
+      'user' => $user,
+      'balance' => $balance
+    ]);
+  }
+
+  var_dump($balanceRequest);
+  exit;
+
+  return $this->view->render($response, 'character-profile.php', [
+    'character' => $character,
+    'user' => $user]
+  );
 
   // TODO: Add error route if character doesn't exist.
 });
