@@ -18,60 +18,63 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
         // line 1
         echo "<h1>Character Profile</h1>
 
-<p>Name: ";
+<p>Name: <strong>";
         // line 3
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), "html", null, true);
-        echo "</p>
-<p>Faction: ";
+        echo "</strong></p>
+<p>Faction: <strong>";
         // line 4
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["character"]) ? $context["character"] : null), "faction", array()), "html", null, true);
-        echo "</p>
+        echo "</p></strong>
 <p>Balance:
   ";
         // line 6
-        if (((isset($context["pending_request"]) ? $context["pending_request"] : null) == "accepted")) {
+        if ((isset($context["balance"]) ? $context["balance"] : null)) {
             // line 7
             echo "    <strong>";
-            echo twig_escape_filter($this->env, (isset($context["balance"]) ? $context["balance"] : null), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance"]) ? $context["balance"] : null), "amount", array()), "html", null, true);
             echo "</strong>
   ";
-        } elseif ( !(null ===         // line 8
-(isset($context["pending_request"]) ? $context["pending_request"] : null))) {
+        } else {
             // line 9
-            echo "  <a href=\"/balance/apply/view/";
-            echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
-            echo "\">
-    <strong>";
-            // line 10
-            echo twig_escape_filter($this->env, (isset($context["pending_request"]) ? $context["pending_request"] : null), "html", null, true);
-            echo "</strong>
-  </a>
+            echo "    <strong>0</strong>
   ";
         }
-        // line 13
+        // line 11
         echo "</p>
 
-
 ";
-        // line 16
-        if ((null === (isset($context["pending_request"]) ? $context["pending_request"] : null))) {
+        // line 13
+        if ((null === (isset($context["balance_request"]) ? $context["balance_request"] : null))) {
+            // line 14
+            echo "  This character currently does not have a balance. Apply for one
+  <a href=\"/balance/apply/";
+            // line 15
+            echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
+            echo "\">here</a>
+";
+        } elseif ((($this->getAttribute(        // line 16
+(isset($context["balance_request"]) ? $context["balance_request"] : null), "complete", array()) == "No") && ($this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()) != "Rejected"))) {
             // line 17
-            echo "  ";
-            if (($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "user_id", array()) == $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "id", array()))) {
-                // line 18
-                echo "    ";
-                if ((null === $this->getAttribute((isset($context["character"]) ? $context["character"] : null), "balance_id", array()))) {
-                    // line 19
-                    echo "      This character currently does not have a balance. Apply for one
-      <a href=\"/balance/apply/";
-                    // line 20
-                    echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
-                    echo "\">here</a>
-    ";
-                }
-                // line 22
-                echo "  ";
-            }
+            echo "  Your current balance request is: <a href=\"/balance/apply/view/";
+            echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()), "html", null, true);
+            echo "</a>
+";
+        } elseif ((($this->getAttribute(        // line 18
+(isset($context["balance_request"]) ? $context["balance_request"] : null), "complete", array()) == "Yes") && ($this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()) == "Rejected"))) {
+            // line 19
+            echo "  Your balance request has been rejected for the following reason:
+  <p>";
+            // line 20
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "decision_reasoning", array()), "html", null, true);
+            echo "</p>
+  You may submit a new balance request <a href=\"/balance/apply/";
+            // line 21
+            echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
+            echo "\">here</a>
+";
         }
     }
 
@@ -87,30 +90,29 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
 
     public function getDebugInfo()
     {
-        return array (  73 => 22,  68 => 20,  65 => 19,  62 => 18,  59 => 17,  57 => 16,  52 => 13,  46 => 10,  41 => 9,  39 => 8,  34 => 7,  32 => 6,  27 => 4,  23 => 3,  19 => 1,);
+        return array (  75 => 21,  71 => 20,  68 => 19,  66 => 18,  59 => 17,  57 => 16,  53 => 15,  50 => 14,  48 => 13,  44 => 11,  40 => 9,  34 => 7,  32 => 6,  27 => 4,  23 => 3,  19 => 1,);
     }
 }
 /* <h1>Character Profile</h1>*/
 /* */
-/* <p>Name: {{ character.name }}</p>*/
-/* <p>Faction: {{ character.faction }}</p>*/
+/* <p>Name: <strong>{{ character.name }}</strong></p>*/
+/* <p>Faction: <strong>{{ character.faction }}</p></strong>*/
 /* <p>Balance:*/
-/*   {% if pending_request == 'accepted' %}*/
-/*     <strong>{{ balance }}</strong>*/
-/*   {% elseif not pending_request is null %}*/
-/*   <a href="/balance/apply/view/{{ character.name | replace(' ', '-') | url_encode }}">*/
-/*     <strong>{{ pending_request }}</strong>*/
-/*   </a>*/
+/*   {% if balance %}*/
+/*     <strong>{{ balance.amount }}</strong>*/
+/*   {% else %}*/
+/*     <strong>0</strong>*/
 /*   {% endif %}*/
 /* </p>*/
 /* */
-/* */
-/* {% if pending_request is null %}*/
-/*   {% if character.user_id == user.id %}*/
-/*     {% if character.balance_id is null %}*/
-/*       This character currently does not have a balance. Apply for one*/
-/*       <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
-/*     {% endif %}*/
-/*   {% endif %}*/
+/* {% if balance_request is null %}*/
+/*   This character currently does not have a balance. Apply for one*/
+/*   <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
+/* {% elseif balance_request.complete == 'No' and balance_request.status != 'Rejected' %}*/
+/*   Your current balance request is: <a href="/balance/apply/view/{{ character.name|replace(' ', '-') | url_encode }}">{{ balance_request.status }}</a>*/
+/* {% elseif balance_request.complete == 'Yes' and balance_request.status == 'Rejected' %}*/
+/*   Your balance request has been rejected for the following reason:*/
+/*   <p>{{ balance_request.decision_reasoning }}</p>*/
+/*   You may submit a new balance request <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
 /* {% endif %}*/
 /* */

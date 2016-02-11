@@ -50,7 +50,9 @@ $app->get('/character/{name}', function ($request, $response, $args) {
                                       ->orderBy('created_at', 'desc')
                                       ->first();
 
-  if ($balanceRequest->status == 'Accepted') {
+
+
+  if ($balanceRequest && $balanceRequest->status == 'Accepted') {
     $balance = Balance::where('character_id', $character->id)->first();
     return $this->view->render($response, 'character-profile.php', [
       'character' => $character,
@@ -59,12 +61,10 @@ $app->get('/character/{name}', function ($request, $response, $args) {
     ]);
   }
 
-  var_dump($balanceRequest);
-  exit;
-
   return $this->view->render($response, 'character-profile.php', [
     'character' => $character,
-    'user' => $user]
+    'user' => $user,
+    'balance_request' => $balanceRequest]
   );
 
   // TODO: Add error route if character doesn't exist.
