@@ -6,3 +6,4 @@ require 'Routes/home.php';
 require 'Routes/create.php';
 require 'Routes/character.php';
 require 'Routes/balance.php';
+require 'Routes/admin.php';

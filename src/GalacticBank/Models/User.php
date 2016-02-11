@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class User extends Eloquent
 {
   protected $table    = 'User';
-  protected $fillable = ['username', 'password', 'email'];
+  protected $fillable = ['username', 'password', 'email', 'permission_level'];
 }

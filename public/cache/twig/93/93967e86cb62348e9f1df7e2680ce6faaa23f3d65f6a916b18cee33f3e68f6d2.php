@@ -45,36 +45,40 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
 
 ";
         // line 13
-        if ((null === (isset($context["balance_request"]) ? $context["balance_request"] : null))) {
+        if ((($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "id", array()) == $this->getAttribute((isset($context["character"]) ? $context["character"] : null), "user_id", array())) || ($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "permission_level", array()) == "Administrator"))) {
             // line 14
-            echo "  This character currently does not have a balance. Apply for one
-  <a href=\"/balance/apply/";
-            // line 15
-            echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
-            echo "\">here</a>
-";
-        } elseif ((($this->getAttribute(        // line 16
+            echo "  ";
+            if ((null === (isset($context["balance_request"]) ? $context["balance_request"] : null))) {
+                // line 15
+                echo "    This character currently does not have a balance. Apply for one
+    <a href=\"/balance/apply/";
+                // line 16
+                echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
+                echo "\">here</a>
+  ";
+            } elseif ((($this->getAttribute(            // line 17
 (isset($context["balance_request"]) ? $context["balance_request"] : null), "complete", array()) == "No") && ($this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()) != "Rejected"))) {
-            // line 17
-            echo "  Your current balance request is: <a href=\"/balance/apply/view/";
-            echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()), "html", null, true);
-            echo "</a>
-";
-        } elseif ((($this->getAttribute(        // line 18
+                // line 18
+                echo "    The current balance request for this character is: <a href=\"/balance/apply/view/";
+                echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()), "html", null, true);
+                echo "</a>
+  ";
+            } elseif ((($this->getAttribute(            // line 19
 (isset($context["balance_request"]) ? $context["balance_request"] : null), "complete", array()) == "Yes") && ($this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()) == "Rejected"))) {
-            // line 19
-            echo "  Your balance request has been rejected for the following reason:
-  <p>";
-            // line 20
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "decision_reasoning", array()), "html", null, true);
-            echo "</p>
-  You may submit a new balance request <a href=\"/balance/apply/";
-            // line 21
-            echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
-            echo "\">here</a>
-";
+                // line 20
+                echo "    Your balance request has been rejected for the following reason:
+    <p>";
+                // line 21
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "decision_reasoning", array()), "html", null, true);
+                echo "</p>
+    This character may submit a new balance request <a href=\"/balance/apply/";
+                // line 22
+                echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
+                echo "\">here</a>
+  ";
+            }
         }
     }
 
@@ -90,7 +94,7 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
 
     public function getDebugInfo()
     {
-        return array (  75 => 21,  71 => 20,  68 => 19,  66 => 18,  59 => 17,  57 => 16,  53 => 15,  50 => 14,  48 => 13,  44 => 11,  40 => 9,  34 => 7,  32 => 6,  27 => 4,  23 => 3,  19 => 1,);
+        return array (  78 => 22,  74 => 21,  71 => 20,  69 => 19,  62 => 18,  60 => 17,  56 => 16,  53 => 15,  50 => 14,  48 => 13,  44 => 11,  40 => 9,  34 => 7,  32 => 6,  27 => 4,  23 => 3,  19 => 1,);
     }
 }
 /* <h1>Character Profile</h1>*/
@@ -105,14 +109,16 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
 /*   {% endif %}*/
 /* </p>*/
 /* */
-/* {% if balance_request is null %}*/
-/*   This character currently does not have a balance. Apply for one*/
-/*   <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
-/* {% elseif balance_request.complete == 'No' and balance_request.status != 'Rejected' %}*/
-/*   Your current balance request is: <a href="/balance/apply/view/{{ character.name|replace(' ', '-') | url_encode }}">{{ balance_request.status }}</a>*/
-/* {% elseif balance_request.complete == 'Yes' and balance_request.status == 'Rejected' %}*/
-/*   Your balance request has been rejected for the following reason:*/
-/*   <p>{{ balance_request.decision_reasoning }}</p>*/
-/*   You may submit a new balance request <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
+/* {% if user.id == character.user_id or user.permission_level == 'Administrator' %}*/
+/*   {% if balance_request is null %}*/
+/*     This character currently does not have a balance. Apply for one*/
+/*     <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
+/*   {% elseif balance_request.complete == 'No' and balance_request.status != 'Rejected' %}*/
+/*     The current balance request for this character is: <a href="/balance/apply/view/{{ character.name|replace(' ', '-') | url_encode }}">{{ balance_request.status }}</a>*/
+/*   {% elseif balance_request.complete == 'Yes' and balance_request.status == 'Rejected' %}*/
+/*     Your balance request has been rejected for the following reason:*/
+/*     <p>{{ balance_request.decision_reasoning }}</p>*/
+/*     This character may submit a new balance request <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
+/*   {% endif %}*/
 /* {% endif %}*/
 /* */
