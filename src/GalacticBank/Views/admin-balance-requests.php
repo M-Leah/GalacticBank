@@ -12,7 +12,7 @@
       <td>{{ request.name }}</td>
       <td>{{ request.amount }}</td>
       <td>{{ request.created_at }}</td> <!-- TODO: Using character created date rather than balance date -->
-      <td><a href="/admin/balance-request/{{request.name|replace(' ', '-')|url_encode}}">View</a></td>
+      <td><a href="/admin/balance-request/{{ request.id }}">View</a></td>
     </tr>
     {% endfor %}
 </table>
@@ -31,7 +31,7 @@
       <td>{{ request.amount }}</td>
       <td>{{ request.created_at }}</td> <!-- TODO: Using character created date rather than balance date -->
       <td>{{ request.status }}</td>
-      <td><a href="/admin/balance-request/{{request.name|replace(' ', '-')|url_encode}}">View</a></td>
+      <td><a href="/admin/balance-request/{{ request.id }}">View</a></td>
     </tr>
     {% endfor %}
 </table>

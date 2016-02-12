@@ -46,7 +46,7 @@ class __TwigTemplate_7a505d950109fb468f8de47cb03c45a704ac3d3fff44563e2f1f87a3711
             echo "</td> <!-- TODO: Using character created date rather than balance date -->
       <td><a href=\"/admin/balance-request/";
             // line 15
-            echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "name", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "id", array()), "html", null, true);
             echo "\">View</a></td>
     </tr>
     ";
@@ -90,7 +90,7 @@ class __TwigTemplate_7a505d950109fb468f8de47cb03c45a704ac3d3fff44563e2f1f87a3711
             echo "</td>
       <td><a href=\"/admin/balance-request/";
             // line 34
-            echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "name", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "id", array()), "html", null, true);
             echo "\">View</a></td>
     </tr>
     ";
@@ -132,7 +132,7 @@ class __TwigTemplate_7a505d950109fb468f8de47cb03c45a704ac3d3fff44563e2f1f87a3711
 /*       <td>{{ request.name }}</td>*/
 /*       <td>{{ request.amount }}</td>*/
 /*       <td>{{ request.created_at }}</td> <!-- TODO: Using character created date rather than balance date -->*/
-/*       <td><a href="/admin/balance-request/{{request.name}}">View</a></td>*/
+/*       <td><a href="/admin/balance-request/{{ request.id }}">View</a></td>*/
 /*     </tr>*/
 /*     {% endfor %}*/
 /* </table>*/
@@ -151,7 +151,7 @@ class __TwigTemplate_7a505d950109fb468f8de47cb03c45a704ac3d3fff44563e2f1f87a3711
 /*       <td>{{ request.amount }}</td>*/
 /*       <td>{{ request.created_at }}</td> <!-- TODO: Using character created date rather than balance date -->*/
 /*       <td>{{ request.status }}</td>*/
-/*       <td><a href="/admin/balance-request/{{request.name}}">View</a></td>*/
+/*       <td><a href="/admin/balance-request/{{ request.id }}">View</a></td>*/
 /*     </tr>*/
 /*     {% endfor %}*/
 /* </table>*/
