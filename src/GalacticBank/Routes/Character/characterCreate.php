@@ -3,22 +3,23 @@
 use GalacticBank\Models\User;
 use GalacticBank\Models\Token;
 use GalacticBank\Models\Character;
+use GalacticBank\Classes\AuthMiddleware;
 
+/**
+ * GET Request
+ */
 $app->get('/character/create', function ($request, $response, $args) {
-
-  // TODO: Extract Login to a method.
-  $token = Token::validateToken($_SESSION['login_token']);
-  if ($token === false || is_null($token)) {
-    header('Location: /login');
-    exit;
-  }
 
   $token = Token::where('token', $_SESSION['login_token'])->first();
   $user  = User::where('id', $token->user_id)->first();
 
   return $this->view->render($response, 'create.php', []);
-});
 
+})->add(new AuthMiddleware);
+
+/*
+ * POST Request
+ */
 $app->post('/character/create', function ($request, $response, $args) {
 
   $name    = isset($_POST['name']) ? $_POST['name'] : ''; //TODO: Validation on name, no special chars, Unique, etc.
@@ -26,7 +27,7 @@ $app->post('/character/create', function ($request, $response, $args) {
 
   $allowedFactions = ['Jedi', 'Sith', 'Other'];
   if (!in_array($faction, $allowedFactions)) {
-    // TODO: Error
+    return $this->view->render($response, 'create.php', ['error'] => 'Invalid Faction selected.');
   }
 
   $token = Token::where('token', $_SESSION['login_token'])->first();
@@ -39,4 +40,5 @@ $app->post('/character/create', function ($request, $response, $args) {
   ]);
 
   return $this->view->render($response, 'create.php', ['success' => 'Character successfully created.']);
-});
+
+})->add(new AuthMiddleware);

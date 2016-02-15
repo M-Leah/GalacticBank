@@ -1,35 +1,11 @@
 <?php
 
-use GalacticBank\Models\User;
-use GalacticBank\Models\Token;
 use GalacticBank\Models\Character;
-use GalacticBank\Models\BalanceRequest;
-
-$app->get('/character', function ($request, $response, $args) {
-
-  // TODO: Extract Login to a method.
-  $token = Token::validateToken($_SESSION['login_token']);
-  if ($token === false || is_null($token)) {
-    header('Location: /login');
-    exit;
-  }
-
-  $token = Token::where('token', $_SESSION['login_token'])->first();
-  $user  = User::where('id', $token->user_id)->first();
-
-  $characters = Character::where('user_id', $user->id)->get();
-
-  return $this->view->render($response, 'character.php', ['characters' => $characters]);
-});
+use GalacticBank\Models\Token;
+use GalacticBank\Models\User;
+use GalacticBank\Classes\AuthMiddleware;
 
 $app->get('/character/{name}', function ($request, $response, $args) {
-
-  // TODO: Extract Login to a method.
-  $token = Token::validateToken($_SESSION['login_token']);
-  if ($token === false || is_null($token)) {
-    header('Location: /login');
-    exit;
-  }
 
   $name = $args['name'];
   if (empty($name)) {
@@ -68,4 +44,5 @@ $app->get('/character/{name}', function ($request, $response, $args) {
   );
 
   // TODO: Add error route if character doesn't exist.
-});
+
+})->add(new AuthMiddleware);
