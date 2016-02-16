@@ -20,7 +20,7 @@ class __TwigTemplate_c8d4e0be58299c9438efa6be9f79a66b7c0bf7094891947c94bbf2ff506
 
 <p>Controls:</p>
 <ul>
-  <li><a href=\"/admin/pending-requests\">View Pending Balance Requests.</a></li>
+  <li><a href=\"/admin/balance-requests\">View Pending Balance Requests.</a></li>
 </ul>
 ";
     }
@@ -39,6 +39,6 @@ class __TwigTemplate_c8d4e0be58299c9438efa6be9f79a66b7c0bf7094891947c94bbf2ff506
 /* */
 /* <p>Controls:</p>*/
 /* <ul>*/
-/*   <li><a href="/admin/pending-requests">View Pending Balance Requests.</a></li>*/
+/*   <li><a href="/admin/balance-requests">View Pending Balance Requests.</a></li>*/
 /* </ul>*/
 /* */

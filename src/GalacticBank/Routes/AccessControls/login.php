@@ -10,14 +10,14 @@ use GalacticBank\Classes\AuthMiddleware;
  */
 
 /*
- * GET Request
+ * GET Route
  */
 $app->get('/login', function ($request, $response, $args) {
   return $this->view->render($response, 'login.php', []);
 });
 
 /*
- * POST Request
+ * POST Route
  */
 $app->post('/login', function ($request, $response, $args) {
 

@@ -1,5 +1,6 @@
 <?php
 
+use GalacticBank\Classes\AuthMiddleware;
 use GalacticBank\Models\User;
 use GalacticBank\Models\Token;
 use GalacticBank\Models\Character;

@@ -3,6 +3,8 @@
 use GalacticBank\Models\Character;
 use GalacticBank\Models\Token;
 use GalacticBank\Models\User;
+use GalacticBank\Models\BalanceRequest;
+use GalacticBank\Models\Balance;
 use GalacticBank\Classes\AuthMiddleware;
 
 $app->get('/character/{name}', function ($request, $response, $args) {
@@ -33,7 +35,8 @@ $app->get('/character/{name}', function ($request, $response, $args) {
     return $this->view->render($response, 'character-profile.php', [
       'character' => $character,
       'user' => $user,
-      'balance' => $balance
+      'balance' => $balance,
+      'balance_request' => $balanceRequest
     ]);
   }
 

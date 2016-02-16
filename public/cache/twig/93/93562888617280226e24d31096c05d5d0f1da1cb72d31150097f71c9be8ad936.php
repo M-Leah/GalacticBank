@@ -51,41 +51,43 @@ class __TwigTemplate_e72e7e643af0181a399dfdbbc62633968e8ba1611e32bb044df70001f87
             // line 18
             if (($this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "completed", array()) != "Yes")) {
                 // line 19
-                echo "  <p>Is the requested amount feasiable?
-    <select>
-      <option>Yes</option>
-      <option>No</option>
-    </select>
-  </p>
-  <p><h4>Reasoning</h4><textarea cols=\"100\" rows=\"10\"></textarea></p>
-  <p><input type=\"submit\" value=\"Save Review\" /></p>
+                echo "  <form method=\"post\">
+    <p>Is the requested amount feasiable?
+      <select name=\"accepted\">
+        <option value=\"accepted\">Yes</option>
+        <option value=\"rejected\">No</option>
+      </select>
+    </p>
+    <p><h4>Reasoning</h4><textarea name=\"decision_reasoning\" cols=\"100\" rows=\"10\"></textarea></p>
+    <p><input type=\"submit\" value=\"Save Review\" /></p>
+  </form>
   ";
             } else {
-                // line 28
+                // line 30
                 echo "    <p>
       This request has already been completed. The balance request was <strong>";
-                // line 29
+                // line 31
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()), "html", null, true);
                 echo "</strong>
       for the following reasons:
     </p>
     <p>
       ";
-                // line 33
+                // line 35
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "decision_reasoning", array()), "html", null, true);
                 echo "
     </p>
   ";
             }
-            // line 36
+            // line 38
             echo "
 ";
         } else {
-            // line 38
+            // line 40
             echo "
 <p>
   ";
-            // line 40
+            // line 42
             echo twig_escape_filter($this->env, (isset($context["error"]) ? $context["error"] : null), "html", null, true);
             echo "
 </p>
@@ -106,7 +108,7 @@ class __TwigTemplate_e72e7e643af0181a399dfdbbc62633968e8ba1611e32bb044df70001f87
 
     public function getDebugInfo()
     {
-        return array (  89 => 40,  85 => 38,  81 => 36,  75 => 33,  68 => 29,  65 => 28,  54 => 19,  52 => 18,  45 => 14,  39 => 11,  30 => 5,  27 => 4,  25 => 3,  19 => 1,);
+        return array (  91 => 42,  87 => 40,  83 => 38,  77 => 35,  70 => 31,  67 => 30,  54 => 19,  52 => 18,  45 => 14,  39 => 11,  30 => 5,  27 => 4,  25 => 3,  19 => 1,);
     }
 }
 /* <h1>Balance Request #{{ balance_request.id }}</h1>*/
@@ -127,14 +129,16 @@ class __TwigTemplate_e72e7e643af0181a399dfdbbc62633968e8ba1611e32bb044df70001f87
 /*   <hr/>*/
 /* */
 /*   {% if balance_request.completed != 'Yes' %}*/
-/*   <p>Is the requested amount feasiable?*/
-/*     <select>*/
-/*       <option>Yes</option>*/
-/*       <option>No</option>*/
-/*     </select>*/
-/*   </p>*/
-/*   <p><h4>Reasoning</h4><textarea cols="100" rows="10"></textarea></p>*/
-/*   <p><input type="submit" value="Save Review" /></p>*/
+/*   <form method="post">*/
+/*     <p>Is the requested amount feasiable?*/
+/*       <select name="accepted">*/
+/*         <option value="accepted">Yes</option>*/
+/*         <option value="rejected">No</option>*/
+/*       </select>*/
+/*     </p>*/
+/*     <p><h4>Reasoning</h4><textarea name="decision_reasoning" cols="100" rows="10"></textarea></p>*/
+/*     <p><input type="submit" value="Save Review" /></p>*/
+/*   </form>*/
 /*   {% else %}*/
 /*     <p>*/
 /*       This request has already been completed. The balance request was <strong>{{ balance_request.status }}</strong>*/

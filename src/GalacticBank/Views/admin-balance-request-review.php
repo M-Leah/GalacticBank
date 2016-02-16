@@ -16,14 +16,16 @@
   <hr/>
 
   {% if balance_request.completed != 'Yes' %}
-  <p>Is the requested amount feasiable?
-    <select>
-      <option>Yes</option>
-      <option>No</option>
-    </select>
-  </p>
-  <p><h4>Reasoning</h4><textarea cols="100" rows="10"></textarea></p>
-  <p><input type="submit" value="Save Review" /></p>
+  <form method="post">
+    <p>Is the requested amount feasiable?
+      <select name="accepted">
+        <option value="accepted">Yes</option>
+        <option value="rejected">No</option>
+      </select>
+    </p>
+    <p><h4>Reasoning</h4><textarea name="decision_reasoning" cols="100" rows="10"></textarea></p>
+    <p><input type="submit" value="Save Review" /></p>
+  </form>
   {% else %}
     <p>
       This request has already been completed. The balance request was <strong>{{ balance_request.status }}</strong>

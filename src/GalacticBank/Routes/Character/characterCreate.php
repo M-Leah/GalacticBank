@@ -27,7 +27,7 @@ $app->post('/character/create', function ($request, $response, $args) {
 
   $allowedFactions = ['Jedi', 'Sith', 'Other'];
   if (!in_array($faction, $allowedFactions)) {
-    return $this->view->render($response, 'create.php', ['error'] => 'Invalid Faction selected.');
+    return $this->view->render($response, 'create.php', ['error' => 'Invalid Faction selected.']);
   }
 
   $token = Token::where('token', $_SESSION['login_token'])->first();
