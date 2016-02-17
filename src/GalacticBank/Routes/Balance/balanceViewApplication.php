@@ -3,6 +3,7 @@
 use GalacticBank\Classes\AuthMiddleware;
 use GalacticBank\Models\Token;
 use GalacticBank\Models\Character;
+use GalacticBank\Models\BalanceRequest;
 use GalacticBank\Models\User;
 
 $app->get('/balance/view-application/{name}', function ($request, $response, $args) {

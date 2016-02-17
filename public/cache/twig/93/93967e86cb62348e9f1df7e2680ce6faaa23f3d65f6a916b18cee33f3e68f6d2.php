@@ -37,7 +37,7 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
   ";
         } else {
             // line 9
-            echo "    <strong>0</strong>
+            echo "    <strong>-</strong>
   ";
         }
         // line 11
@@ -57,9 +57,9 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
                 echo "\">here</a>
   ";
             } elseif ((($this->getAttribute(            // line 17
-(isset($context["balance_request"]) ? $context["balance_request"] : null), "complete", array()) == "No") && ($this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()) != "Rejected"))) {
+(isset($context["balance_request"]) ? $context["balance_request"] : null), "completed", array()) == "No") && ($this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()) != "Rejected"))) {
                 // line 18
-                echo "    The current balance request for this character is: <a href=\"/balance/apply/view/";
+                echo "    The current balance request for this character is: <a href=\"/balance/view-application/";
                 echo twig_escape_filter($this->env, twig_urlencode_filter(twig_replace_filter($this->getAttribute((isset($context["character"]) ? $context["character"] : null), "name", array()), " ", "-")), "html", null, true);
                 echo "\">";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["balance_request"]) ? $context["balance_request"] : null), "status", array()), "html", null, true);
@@ -105,7 +105,7 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
 /*   {% if balance %}*/
 /*     <strong>{{ balance.amount }}</strong>*/
 /*   {% else %}*/
-/*     <strong>0</strong>*/
+/*     <strong>-</strong>*/
 /*   {% endif %}*/
 /* </p>*/
 /* */
@@ -113,8 +113,8 @@ class __TwigTemplate_256aebac2f69d713562903cffc51bee84fbbadd75fb68819a03a8fd1474
 /*   {% if balance_request is null %}*/
 /*     This character currently does not have a balance. Apply for one*/
 /*     <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>*/
-/*   {% elseif balance_request.complete == 'No' and balance_request.status != 'Rejected' %}*/
-/*     The current balance request for this character is: <a href="/balance/apply/view/{{ character.name|replace(' ', '-') | url_encode }}">{{ balance_request.status }}</a>*/
+/*   {% elseif balance_request.completed == 'No' and balance_request.status != 'Rejected' %}*/
+/*     The current balance request for this character is: <a href="/balance/view-application/{{ character.name|replace(' ', '-') | url_encode }}">{{ balance_request.status }}</a>*/
 /*   {% elseif balance_request.complete == 'Yes' and balance_request.status == 'Rejected' %}*/
 /*     Your balance request has been rejected for the following reason:*/
 /*     <p>{{ balance_request.decision_reasoning }}</p>*/

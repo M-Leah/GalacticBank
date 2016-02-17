@@ -3,7 +3,7 @@
 use GalacticBank\Classes\AuthMiddleware;
 use GalacticBank\Models\Token;
 use GalacticBank\Models\User;
-use GalacitcBank\Models\Character;
+use GalacticBank\Models\Character;
 use GalacticBank\Models\BalanceRequest;
 
 /*

@@ -17,6 +17,10 @@ require 'Routes/Balance/balance.php';
 require 'Routes/Balance/balanceApply.php';
 require 'Routes/Balance/balanceViewApplication.php';
 
+// Transaction Routes
+require 'Routes/Transaction/transaction.php';
+require 'Routes/Transaction/transactionCreate.php';
+
 // Admin Routes
 require 'Routes/Admin/admin.php';
 require 'Routes/Admin/balanceRequest.php';

@@ -6,7 +6,7 @@
   {% if balance %}
     <strong>{{ balance.amount }}</strong>
   {% else %}
-    <strong>0</strong>
+    <strong>-</strong>
   {% endif %}
 </p>
 
@@ -14,8 +14,8 @@
   {% if balance_request is null %}
     This character currently does not have a balance. Apply for one
     <a href="/balance/apply/{{ character.name|replace(' ', '-') | url_encode }}">here</a>
-  {% elseif balance_request.complete == 'No' and balance_request.status != 'Rejected' %}
-    The current balance request for this character is: <a href="/balance/apply/view/{{ character.name|replace(' ', '-') | url_encode }}">{{ balance_request.status }}</a>
+  {% elseif balance_request.completed == 'No' and balance_request.status != 'Rejected' %}
+    The current balance request for this character is: <a href="/balance/view-application/{{ character.name|replace(' ', '-') | url_encode }}">{{ balance_request.status }}</a>
   {% elseif balance_request.complete == 'Yes' and balance_request.status == 'Rejected' %}
     Your balance request has been rejected for the following reason:
     <p>{{ balance_request.decision_reasoning }}</p>

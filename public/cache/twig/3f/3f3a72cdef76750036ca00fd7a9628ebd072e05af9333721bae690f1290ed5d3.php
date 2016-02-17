@@ -31,15 +31,13 @@ class __TwigTemplate_386e310e1d7e493da137227c5477d26973ad186979cc7f719799e89de5f
         echo "  <li><a href=\"/logout\">Logout</a></li>
   <li><a href=\"/character\">Charaters Page</a></li>
   <li><a href=\"/character/create\">Create a Character Page</a></li>
+  <li><a href=\"/transaction\">View and create new Transactions</a></li>
 </ul>
 
 <h3>TODO:</h3>
 <ul>
   <li>Transaction Route</li>
-  <li>Administrator Panel for Accepting/Rejecting Requests</li>
-  <li>Characters Route (In progress...)</li>
-  <li>Sort out Balances for Characters</li>
-  <li>Bounty Terminal Route</li>
+  <li>Register Route</li>
 </ul>
 ";
     }
@@ -69,14 +67,12 @@ class __TwigTemplate_386e310e1d7e493da137227c5477d26973ad186979cc7f719799e89de5f
 /*   <li><a href="/logout">Logout</a></li>*/
 /*   <li><a href="/character">Charaters Page</a></li>*/
 /*   <li><a href="/character/create">Create a Character Page</a></li>*/
+/*   <li><a href="/transaction">View and create new Transactions</a></li>*/
 /* </ul>*/
 /* */
 /* <h3>TODO:</h3>*/
 /* <ul>*/
 /*   <li>Transaction Route</li>*/
-/*   <li>Administrator Panel for Accepting/Rejecting Requests</li>*/
-/*   <li>Characters Route (In progress...)</li>*/
-/*   <li>Sort out Balances for Characters</li>*/
-/*   <li>Bounty Terminal Route</li>*/
+/*   <li>Register Route</li>*/
 /* </ul>*/
 /* */
