@@ -33,19 +33,34 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
             // line 8
             echo "<form method=\"post\">
   <p>
-    <strong>Transfer funds from:</strong>
-    <select>
+    ";
+            // line 10
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["senderError"]) ? $context["senderError"] : null));
+            foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+                // line 11
+                echo "      <p style=\"color:red;\">";
+                echo twig_escape_filter($this->env, $context["error"], "html", null, true);
+                echo "</p>
+    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 13
+            echo "    <strong>Transfer funds from:</strong>
+    <select name=\"sender\">
       ";
-            // line 12
+            // line 15
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["characters"]) ? $context["characters"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["character"]) {
-                // line 13
+                // line 16
                 echo "        <option value=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["character"], "id", array()), "html", null, true);
                 echo "\">
           ";
-                // line 14
+                // line 17
                 echo twig_escape_filter($this->env, $this->getAttribute($context["character"], "name", array()), "html", null, true);
                 echo "
         </option>
@@ -54,18 +69,48 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['character'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 17
+            // line 20
             echo "    </select>
   </p>
 
   <p>
-    <strong>Transfer funds to:</strong>
-    <input type=\"text\" name=\"recipient_name\" />
+    ";
+            // line 24
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["recipientError"]) ? $context["recipientError"] : null));
+            foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+                // line 25
+                echo "      <p style=\"color:red;\">";
+                echo twig_escape_filter($this->env, $context["error"], "html", null, true);
+                echo "</p>
+    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 27
+            echo "    <strong>Transfer funds to:</strong>
+    <input type=\"text\" name=\"recipient\" />
   </p>
 
   <p>
-    <strong>Transfer Amount:</strong>
-    <input type=\"text\" pattern=\"[0-9]\" name=\"amount\" />
+    ";
+            // line 32
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["amountError"]) ? $context["amountError"] : null));
+            foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+                // line 33
+                echo "      <p style=\"color:red;\">";
+                echo twig_escape_filter($this->env, $context["error"], "html", null, true);
+                echo "</p>
+    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 35
+            echo "    <strong>Transfer Amount:</strong>
+    <input type=\"text\" pattern=\"[0-9]+\" name=\"amount\" />
   </p>
 
   <p>
@@ -88,7 +133,7 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
 
     public function getDebugInfo()
     {
-        return array (  58 => 17,  49 => 14,  44 => 13,  40 => 12,  34 => 8,  28 => 5,  25 => 4,  23 => 3,  19 => 1,);
+        return array (  112 => 35,  103 => 33,  99 => 32,  92 => 27,  83 => 25,  79 => 24,  73 => 20,  64 => 17,  59 => 16,  55 => 15,  51 => 13,  42 => 11,  38 => 10,  34 => 8,  28 => 5,  25 => 4,  23 => 3,  19 => 1,);
     }
 }
 /* <h1>New Transaction</h1>*/
@@ -100,8 +145,11 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
 /* {% else %}*/
 /* <form method="post">*/
 /*   <p>*/
+/*     {% for error in senderError %}*/
+/*       <p style="color:red;">{{ error }}</p>*/
+/*     {% endfor %}*/
 /*     <strong>Transfer funds from:</strong>*/
-/*     <select>*/
+/*     <select name="sender">*/
 /*       {% for character in characters %}*/
 /*         <option value="{{ character.id }}">*/
 /*           {{ character.name }}*/
@@ -111,13 +159,19 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
 /*   </p>*/
 /* */
 /*   <p>*/
+/*     {% for error in recipientError %}*/
+/*       <p style="color:red;">{{ error }}</p>*/
+/*     {% endfor %}*/
 /*     <strong>Transfer funds to:</strong>*/
-/*     <input type="text" name="recipient_name" />*/
+/*     <input type="text" name="recipient" />*/
 /*   </p>*/
 /* */
 /*   <p>*/
+/*     {% for error in amountError %}*/
+/*       <p style="color:red;">{{ error }}</p>*/
+/*     {% endfor %}*/
 /*     <strong>Transfer Amount:</strong>*/
-/*     <input type="text" pattern="[0-9]" name="amount" />*/
+/*     <input type="text" pattern="[0-9]+" name="amount" />*/
 /*   </p>*/
 /* */
 /*   <p>*/
