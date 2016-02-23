@@ -5,6 +5,7 @@ use GalacticBank\Models\Token;
 use GalacticBank\Models\User;
 use GalacticBank\Models\Balance;
 use GalacticBank\Models\Character;
+use GalacticBank\Models\Audit;
 use GalacticBank\Models\Transaction;
 
 /*
@@ -111,6 +112,13 @@ $app->post('/transaction/create', function ($request, $response, $args) {
                             );
 
     if ($transactionCompleted) {
+      Transaction::create([
+          'sender_character_id' => $senderCharacter->id,
+          'recipient_character_id' => $recipientCharacter->id,
+          'amount' => $amount
+
+      ]);
+
       Audit::create([
         'category'   => 'Successful Transaction',
         'log_note'   => 'Transaction successfully completed for the amount of '
@@ -121,6 +129,9 @@ $app->post('/transaction/create', function ($request, $response, $args) {
       ]);
     }
 
-    var_dump('successful transaction');
+    return $this->view->render($response, 'transaction-create.php', [
+      'success' => 'Credits transferred successfully.',
+      'characters' => $characters
+    ]);
 
 });

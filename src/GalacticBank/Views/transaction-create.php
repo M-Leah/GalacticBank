@@ -1,5 +1,7 @@
 <h1>New Transaction</h1>
-
+{% if success is defined %}
+  {{ success }}
+{% endif %}
 {% if error is defined %}
 
   {{ error }}

@@ -5,5 +5,5 @@
 </p>
 
 <p>
-  <a href="/transaction/previous">View Previous Transactions</a>
+  <a href="/transaction/list">View Previous Transactions</a>
 </p>

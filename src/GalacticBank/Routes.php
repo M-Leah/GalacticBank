@@ -20,6 +20,8 @@ require 'Routes/Balance/balanceViewApplication.php';
 // Transaction Routes
 require 'Routes/Transaction/transaction.php';
 require 'Routes/Transaction/transactionCreate.php';
+require 'Routes/Transaction/transactionCharacterList.php';
+require 'Routes/Transaction/transactionPrevious.php';
 
 // Admin Routes
 require 'Routes/Admin/admin.php';

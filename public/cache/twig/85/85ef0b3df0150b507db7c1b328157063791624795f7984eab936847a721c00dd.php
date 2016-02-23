@@ -23,7 +23,7 @@ class __TwigTemplate_8eb242d4cf8fcb5453c179e7dc8391c32f0bf5ba4cb99d8d09d4e711863
 </p>
 
 <p>
-  <a href=\"/transaction/previous\">View Previous Transactions</a>
+  <a href=\"/transaction/list\">View Previous Transactions</a>
 </p>
 ";
     }
@@ -45,6 +45,6 @@ class __TwigTemplate_8eb242d4cf8fcb5453c179e7dc8391c32f0bf5ba4cb99d8d09d4e711863
 /* </p>*/
 /* */
 /* <p>*/
-/*   <a href="/transaction/previous">View Previous Transactions</a>*/
+/*   <a href="/transaction/list">View Previous Transactions</a>*/
 /* </p>*/
 /* */

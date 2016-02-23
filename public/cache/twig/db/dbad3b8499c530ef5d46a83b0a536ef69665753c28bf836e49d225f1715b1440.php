@@ -17,28 +17,35 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
     {
         // line 1
         echo "<h1>New Transaction</h1>
-
 ";
-        // line 3
+        // line 2
+        if (array_key_exists("success", $context)) {
+            // line 3
+            echo "  ";
+            echo twig_escape_filter($this->env, (isset($context["success"]) ? $context["success"] : null), "html", null, true);
+            echo "
+";
+        }
+        // line 5
         if (array_key_exists("error", $context)) {
-            // line 4
+            // line 6
             echo "
   ";
-            // line 5
+            // line 7
             echo twig_escape_filter($this->env, (isset($context["error"]) ? $context["error"] : null), "html", null, true);
             echo "
 
 ";
         } else {
-            // line 8
+            // line 10
             echo "<form method=\"post\">
   <p>
     ";
-            // line 10
+            // line 12
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["senderError"]) ? $context["senderError"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
-                // line 11
+                // line 13
                 echo "      <p style=\"color:red;\">";
                 echo twig_escape_filter($this->env, $context["error"], "html", null, true);
                 echo "</p>
@@ -47,20 +54,20 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 13
+            // line 15
             echo "    <strong>Transfer funds from:</strong>
     <select name=\"sender\">
       ";
-            // line 15
+            // line 17
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["characters"]) ? $context["characters"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["character"]) {
-                // line 16
+                // line 18
                 echo "        <option value=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["character"], "id", array()), "html", null, true);
                 echo "\">
           ";
-                // line 17
+                // line 19
                 echo twig_escape_filter($this->env, $this->getAttribute($context["character"], "name", array()), "html", null, true);
                 echo "
         </option>
@@ -69,17 +76,17 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['character'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 20
+            // line 22
             echo "    </select>
   </p>
 
   <p>
     ";
-            // line 24
+            // line 26
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["recipientError"]) ? $context["recipientError"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
-                // line 25
+                // line 27
                 echo "      <p style=\"color:red;\">";
                 echo twig_escape_filter($this->env, $context["error"], "html", null, true);
                 echo "</p>
@@ -88,18 +95,18 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 27
+            // line 29
             echo "    <strong>Transfer funds to:</strong>
     <input type=\"text\" name=\"recipient\" />
   </p>
 
   <p>
     ";
-            // line 32
+            // line 34
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["amountError"]) ? $context["amountError"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
-                // line 33
+                // line 35
                 echo "      <p style=\"color:red;\">";
                 echo twig_escape_filter($this->env, $context["error"], "html", null, true);
                 echo "</p>
@@ -108,7 +115,7 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 35
+            // line 37
             echo "    <strong>Transfer Amount:</strong>
     <input type=\"text\" pattern=\"[0-9]+\" name=\"amount\" />
   </p>
@@ -133,11 +140,13 @@ class __TwigTemplate_c56af3c41222a4d92ceb34713cd5ca2f3e2f322a302672498087b7fbd02
 
     public function getDebugInfo()
     {
-        return array (  112 => 35,  103 => 33,  99 => 32,  92 => 27,  83 => 25,  79 => 24,  73 => 20,  64 => 17,  59 => 16,  55 => 15,  51 => 13,  42 => 11,  38 => 10,  34 => 8,  28 => 5,  25 => 4,  23 => 3,  19 => 1,);
+        return array (  119 => 37,  110 => 35,  106 => 34,  99 => 29,  90 => 27,  86 => 26,  80 => 22,  71 => 19,  66 => 18,  62 => 17,  58 => 15,  49 => 13,  45 => 12,  41 => 10,  35 => 7,  32 => 6,  30 => 5,  24 => 3,  22 => 2,  19 => 1,);
     }
 }
 /* <h1>New Transaction</h1>*/
-/* */
+/* {% if success is defined %}*/
+/*   {{ success }}*/
+/* {% endif %}*/
 /* {% if error is defined %}*/
 /* */
 /*   {{ error }}*/
